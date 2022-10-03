@@ -2,32 +2,63 @@
 
 Go to https://tinytapeout.com for instructions!
 
-# How to change the Wokwi project
+# Shiftregister Challenge 40 Bit
 
-Edit the [Makefile](Makefile) and change the WOKWI_PROJECT_ID to match your project.
+## TinyTapeout
 
-# What is this about?
+This repository contains a mikrochip design done for TinyTapeout.
+Go to https://tinytapeout.com for more informations.
 
-This repo is a template you can make a copy of for your own [ASIC](https://www.zerotoasiccourse.com/terminology/asic/) design using [Wokwi](https://wokwi.com/).
+The design is included on the SKY130 shuttlerun MPW-7 with the TinyTapeout project:
+https://github.com/mattvenn/tinytapeout-mpw7
+https://platform.efabless.com/projects/shuttle_11
 
-When you edit the Makefile to choose a different ID, the [GitHub Action](.github/workflows/wokwi.yaml) will fetch the digital netlist of your design from Wokwi.
+## Wokwi project
 
-The design gets wrapped in some extra logic that builds a 'scan chain'. This is a way to put lots of designs onto one chip and still have access to them all. You can see [all of the technical details here](https://github.com/mattvenn/scan_wrapper).
+https://wokwi.com/projects/341516949939814994
 
-After that, the action uses the open source ASIC tool called [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/) to build the files needed to fabricate an ASIC.
+## Information about the design
 
-# What files get made?
+author:       "Thorsten Knoll"
 
-When the action is complete, you can [click here](https://github.com/mattvenn/wokwi-verilog-gds-test/actions) to see the latest build of your design. You need to download the zip file and take a look at the contents:
+title:        "Shiftregister Challenge 40 Bit"
 
-* gds_render.svg - picture of your ASIC design
-* gds.html - zoomable picture of your ASIC design
-* runs/wokwi/reports/final_summary_report.csv  - CSV file with lots of details about the design
-* runs/wokwi/reports/synthesis/1-synthesis.stat.rpt.strategy4 - list of the [standard cells](https://www.zerotoasiccourse.com/terminology/standardcell/) used by your design
-* runs/wokwi/results/final/gds/user_module.gds - the final [GDS](https://www.zerotoasiccourse.com/terminology/gds2/) file needed to make your design
+description:  "The design is a 40 bit shiftregister with a hardcoded 40 bit number. The challenge is to find the correct 40 bit to enable the output to high. With all other numbers the output will be low."
 
-# What next?
+how_it_works: "Shift a 40 bit number into the chip with the two inputs data (IN0) and clk (IN1). If the shifted 40 bit match the hardcoded internal 40 bit, then and only then the output will become high. Having only the mikrochip without the design files, one might need reverse engineering and/or side channel attacks to fing the correct 40 bit."
 
-* Share your GDS on twitter, tag it #tinytapeout and [link me](https://twitter.com/matthewvenn)!
-* [Submit it to be made](https://docs.google.com/forms/d/e/1FAIpQLSc3ZF0AHKD3LoZRSmKX5byl-0AzrSK8ADeh0DtkZQX0bbr16w/viewform?usp=sf_link)
-* [Join the community](https://discord.gg/rPK2nSjxy8)
+how_to_test:  "Get the correct 40 bit from the design and shift them into the shiftregister. Each rising edge at the clk will push the next bit into the register. At the correct 40 bit, the output will enable high."
+
+external_hw:  "To test when knowing the correct 40 bit, only a dipswitch (data), a button (clk) and a LED (output) is needed. Without knowing the number it becomes the challenge and more hardware might be required."
+
+doc_link:     ""
+
+clock_hz:     0
+
+language:     "wokwi"
+
+wokwi_id:     341516949939814994
+
+pictures:      
+<img src=shiftregister_challenge.png>
+<img src=shiftregister_challenge_gds_render.png>
+
+inputs:
+  - data
+  - clk
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+
+outputs:
+  - output
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none

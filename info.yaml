@@ -1,25 +1,25 @@
---- 
+---
 # TinyTapeout project information
 #
 # As everyone will have access to all designs, try to make it easy for someone new to your design to know what
 # it does and how to operate it.
 #
 # This will be automatically collected and used to make a datasheet for the chip.
-project: 
-  author:       ""      # Your name
-  title:        ""      # Project title
-  description:  ""      # Short description of what your project does
-  how_it_works: ""      # Longer description of how the project works
-  how_to_test:  ""      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
-  external_hw:  ""      # Describe any external hardware needed
-  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
-  clock_hz:     0       # Clock frequency in Hz (if required)
-  language:     "wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  wokwi_id:     0       # the wokwi ID
-  picture:      ""      # relative path to a picture in your repository
-  inputs:               # a description of what the inputs do
-    - clock
-    - reset
+project:
+  author:       "Thorsten Knoll"
+  title:        "Shiftregister Challenge 40 Bit"
+  description:  "The design is a 40 bit shiftregister with a hardcoded 40 bit number. The challenge is to find the correct 40 bit to enable the output to high. With all other numbers the output will be low."
+  how_it_works: "Shift a 40 bit number into the chip with the two inputs data (IN0) and clk (IN1). If the shifted 40 bit match the hardcoded internal 40 bit, then and only then the output will become high. Having only the mikrochip without the design files, one might need reverse engineering and/or side channel attacks to fing the correct 40 bit."
+  how_to_test:  "Get the correct 40 bit from the design and shift them into the shiftregister. Each rising edge at the clk will push the next bit into the register. At the correct 40 bit, the output will enable high."
+  external_hw:  "To test when knowing the correct 40 bit, only a dipswitch (data), a button (clk) and a LED (output) is needed. Without knowing the number it becomes the challenge and more hardware might be required."
+  doc_link:     ""
+  clock_hz:     0
+  language:     "wokwi"
+  wokwi_id:     341516949939814994
+  picture:      "shiftregister_challenge.png"
+  inputs:
+    - data
+    - clk
     - none
     - none
     - none
@@ -27,12 +27,11 @@ project:
     - none
     - none
   outputs:
-    - segment a         # a description of what the outputs do
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
+    - output
     - none
-
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
