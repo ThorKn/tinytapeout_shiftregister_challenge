@@ -31,10 +31,6 @@ how_to_test:  "Get the correct 40 bit from the design and shift them into the sh
 
 external_hw:  "To test when knowing the correct 40 bit, only a dipswitch (data), a button (clk) and a LED (output) is needed. Without knowing the number it becomes the challenge and more hardware might be required."
 
-doc_link:     ""
-
-clock_hz:     0
-
 language:     "wokwi"
 
 wokwi_id:     341516949939814994
